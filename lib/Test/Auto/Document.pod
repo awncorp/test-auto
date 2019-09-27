@@ -1,0 +1,166 @@
+
+=encoding utf8
+
+=head1 NAME
+
+Test::Auto::Document
+
+=cut
+
+=head1 ABSTRACT
+
+Documentation Generator
+
+=cut
+
+=head1 SYNOPSIS
+
+  package main;
+
+  use Test::Auto;
+  use Test::Auto::Parser;
+  use Test::Auto::Document;
+
+  my $test = Test::Auto->new(
+    't/Test_Auto.t'
+  );
+
+  my $parser = Test::Auto::Parser->new(
+    source => $test
+  );
+
+  my $doc = Test::Auto::Document->new(
+    parser => $parser
+  );
+
+  # render documentation
+
+  # $doc->render
+
+=cut
+
+=head1 DESCRIPTION
+
+This package use the L<Test::Auto::Parser> object to generate a valid Perl 5
+POD document.
+
+=cut
+
+=head1 LIBRARIES
+
+This package uses type constraints from:
+
+L<Data::Object::Library>
+
+=cut
+
+=head1 ATTRIBUTES
+
+This package has the following attributes:
+
+=cut
+
+=head2 content
+
+  content(ArrayRef[Str])
+
+This attribute is read-only, accepts C<(ArrayRef[Str])> values, and is optional.
+
+=cut
+
+=head2 parser
+
+  parser(InstanceOf["Test::Auto::Parser"])
+
+This attribute is read-only, accepts C<(InstanceOf["Test::Auto::Parser"])> values, and is required.
+
+=cut
+
+=head2 template
+
+  template(Maybe[Str])
+
+This attribute is read-only, accepts C<(Maybe[Str])> values, and is optional.
+
+=cut
+
+=head1 METHODS
+
+This package implements the following methods:
+
+=cut
+
+=head2 render
+
+  render() : Str
+
+This method returns a string representation of a valid POD document. You can
+also provide a template to wrap the generated document by passing it to the
+constructor or specifying it in the C<TEST_AUTO_TEMPLATE> environment variable.
+
+=over 4
+
+=item render example #1
+
+  # given: synopsis
+
+  my $rendered = $doc->render;
+
+=back
+
+=over 4
+
+=item render example #2
+
+  # given: synopsis
+
+  $ENV{TEST_AUTO_TEMPLATE} = './TEMPLATE';
+
+  # where ./TEMPLATE has a {content} placeholder
+
+  my $rendered = $doc->render;
+
+  undef $ENV{TEST_AUTO_TEMPLATE};
+
+  $rendered;
+
+=back
+
+=over 4
+
+=item render example #3
+
+  # given: synopsis
+
+  my $tmpl = Test::Auto::Document->new(
+    parser => $parser,
+    template => './TEMPLATE'
+  );
+
+  my $rendered = $tmpl->render;
+
+=back
+
+=cut
+
+=head1 AUTHOR
+
+Al Newkirk, C<awncorp@cpan.org>
+
+=head1 LICENSE
+
+Copyright (C) 2011-2019, Al Newkirk, et al.
+
+This is free software; you can redistribute it and/or modify it under the terms
+of the The Apache License, Version 2.0, as elucidated in the
+L<"license file"|https://github.com/iamalnewkirk/do/blob/master/LICENSE>.
+
+=head1 PROJECT
+
+L<Project|https://github.com/iamalnewkirk/test-auto>
+
+L<Milestones|https://github.com/iamalnewkirk/test-auto/milestones>
+
+L<Issues|https://github.com/iamalnewkirk/test-auto/issues>
+
+=cut

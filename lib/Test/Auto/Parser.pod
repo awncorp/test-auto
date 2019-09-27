@@ -1,0 +1,172 @@
+
+=encoding utf8
+
+=head1 NAME
+
+Test::Auto::Parser
+
+=cut
+
+=head1 ABSTRACT
+
+Specification Parser
+
+=cut
+
+=head1 SYNOPSIS
+
+  package main;
+
+  use Test::Auto;
+  use Test::Auto::Parser;
+
+  my $test = Test::Auto->new(
+    't/Test_Auto_Parser.t'
+  );
+
+  my $parser = Test::Auto::Parser->new(
+    source => $test
+  );
+
+=cut
+
+=head1 DESCRIPTION
+
+This package use the L<Test::Auto> object as a parser target, where the
+object's file property points to a test file containing POD blocks which adhere
+to the specification as defined in L<Test::Auto/SPECIFICATION>, parses the test
+file and returns a parser object for accessing the data.
+
+=cut
+
+=head1 LIBRARIES
+
+This package uses type constraints from:
+
+L<Data::Object::Library>
+
+=cut
+
+=head1 ATTRIBUTES
+
+This package has the following attributes:
+
+=cut
+
+=head2 abstract
+
+  abstract(ArrayRef[Str])
+
+This attribute is read-only, accepts C<(ArrayRef[Str])> values, and is optional.
+
+=cut
+
+=head2 attributes
+
+  attributes(ArrayRef[Str])
+
+This attribute is read-only, accepts C<(ArrayRef[Str])> values, and is optional.
+
+=cut
+
+=head2 description
+
+  description(ArrayRef[Str])
+
+This attribute is read-only, accepts C<(ArrayRef[Str])> values, and is optional.
+
+=cut
+
+=head2 footers
+
+  footers(ArrayRef[Str])
+
+This attribute is read-only, accepts C<(ArrayRef[Str])> values, and is optional.
+
+=cut
+
+=head2 headers
+
+  headers(ArrayRef[Str])
+
+This attribute is read-only, accepts C<(ArrayRef[Str])> values, and is optional.
+
+=cut
+
+=head2 includes
+
+  includes(ArrayRef[Str])
+
+This attribute is read-only, accepts C<(ArrayRef[Str])> values, and is optional.
+
+=cut
+
+=head2 inherits
+
+  inherits(ArrayRef[Str])
+
+This attribute is read-only, accepts C<(ArrayRef[Str])> values, and is optional.
+
+=cut
+
+=head2 integrates
+
+  integrates(ArrayRef[Str])
+
+This attribute is read-only, accepts C<(ArrayRef[Str])> values, and is optional.
+
+=cut
+
+=head2 libraries
+
+  libraries(ArrayRef[Str])
+
+This attribute is read-only, accepts C<(ArrayRef[Str])> values, and is optional.
+
+=cut
+
+=head2 name
+
+  name(ArrayRef[Str])
+
+This attribute is read-only, accepts C<(ArrayRef[Str])> values, and is optional.
+
+=cut
+
+=head2 source
+
+  source(InstanceOf["Test::Auto"])
+
+This attribute is read-only, accepts C<(InstanceOf["Test::Auto"])> values, and is required.
+
+=cut
+
+=head2 synopsis
+
+  synopsis(ArrayRef[Str])
+
+This attribute is read-only, accepts C<(ArrayRef[Str])> values, and is optional.
+
+=cut
+
+=head1 AUTHOR
+
+Al Newkirk, C<awncorp@cpan.org>
+
+=head1 LICENSE
+
+Copyright (C) 2011-2019, Al Newkirk, et al.
+
+This is free software; you can redistribute it and/or modify it under the terms
+of the The Apache License, Version 2.0, as elucidated in the
+L<"license file"|https://github.com/iamalnewkirk/do/blob/master/LICENSE>.
+
+=head1 PROJECT
+
+L<Project|https://github.com/iamalnewkirk/test-auto>
+
+L<Milestones|https://github.com/iamalnewkirk/test-auto/milestones>
+
+L<Issues|https://github.com/iamalnewkirk/test-auto/issues>
+
+=cut
