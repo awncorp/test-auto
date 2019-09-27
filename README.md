@@ -440,7 +440,7 @@ Copyright (C) 2011-2019, Al Newkirk, et al.
 
 This is free software; you can redistribute it and/or modify it under the terms
 of the The Apache License, Version 2.0, as elucidated in the
-["license file"](https://github.com/iamalnewkirk/do/blob/master/LICENSE).
+["license file"](https://github.com/iamalnewkirk/test-auto/blob/master/LICENSE).
 
 # PROJECT
 
