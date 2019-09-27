@@ -77,7 +77,7 @@ render() : Str
 
   $ENV{TEST_AUTO_TEMPLATE} = './t/Test_Template.pod';
 
-  # where ./TEMPLATE has a {content} placeholder
+  # where ./t/Test_Template.pod has a {content} placeholder
 
   my $rendered = $doc->render;
 
