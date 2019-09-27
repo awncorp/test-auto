@@ -32,7 +32,7 @@ echo $V > VERSION
 find lib -type f -name \*.pod -exec rm {} \;
 
 # Regenerate all necessary POD documents
-perl -Ilib bin/testauto
+perl -Ilib bin/testauto -t ./TEMPLATE
 
 # Push generated POD changes
 if ! git diff-index --quiet HEAD --; then
