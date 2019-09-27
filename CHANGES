@@ -1,1 +1,19 @@
 Changelog for Test-Auto
+
+0.02 2019-09-27T14:07:47
+ - Added release updates
+ - Corrected T/A/Document POD error
+ - Updated executable POD and dist.ini
+ - Fixed POD generation
+ - Updated required Do version
+ - Updated template and test template location
+ - Updated dist.ini dist name
+
+0.01 2019-09-27T01:38:15
+ - Built release version 0.01
+ - Added release updates
+ - Fixed POD generation
+ - Updated required Do version
+ - Updated template and test template location
+ - Updated dist.ini dist name
+ - Initial commit
