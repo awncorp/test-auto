@@ -75,9 +75,9 @@ render() : Str
 
   # given: synopsis
 
-  $ENV{TEST_AUTO_TEMPLATE} = './TEMPLATE';
+  $ENV{TEST_AUTO_TEMPLATE} = './t/Test_Template.pod';
 
-  # where ./TEMPLATE has a {content} placeholder
+  # where ./t/Test_Template.pod has a {content} placeholder
 
   my $rendered = $doc->render;
 
@@ -91,7 +91,7 @@ render() : Str
 
   my $tmpl = Test::Auto::Document->new(
     parser => $parser,
-    template => './TEMPLATE'
+    template => './t/Test_Template.pod'
   );
 
   my $rendered = $tmpl->render;

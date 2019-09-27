@@ -1,11 +1,12 @@
 #!/usr/bin/env perl
 
-package Test::Auto::Cli;
+package
+  Test::Auto::Cli;
 
 use Do 'Cli';
 
-use File::Find;
 use File::Basename;
+use File::Find;
 use File::Spec::Functions;
 use Test::Auto;
 use Data::Object::Name;
@@ -14,10 +15,56 @@ use File::Path 'make_path';
 
 # VERSION
 
-method usage() {
-  my $help = $self->help;
+=head1 NAME
 
-  say $help->join("\n");
+testauto
+
+=cut
+
+=head1 ABSTRACT
+
+Generate POD from Tests
+
+=cut
+
+=head1 SYNOPSIS
+
+  testauto -i t -o lib -t ./mytemplate
+
+=cut
+
+=head1 DESCRIPTION
+
+This tool lets you generate POD documents from test files that adhere to the
+specification, L<Test::Auto/SPECIFICATION>.
+
+=cut
+
+=head1 OPTIONS
+
+  -h --help      Display help text.
+  -t --template  Filepath for POD template.
+  -p --pattern   Pattern to use to filter files.
+  -o --output    Directory for .pod files.
+  -i --input     Directory for .t files.
+
+=cut
+
+method spec() {
+  return [qw(
+    help|h
+    input|i=s
+    output|o=s
+    pattern|p=s
+    template|t=s
+  )];
+}
+
+method usage() {
+  my $data = $self->data;
+  my $help = $data->contents('head1', 'OPTIONS');
+
+  say join "\n", "$0 [options]", "", @{$help->[0]};
 }
 
 method main(:$args, :$opts) {
@@ -63,19 +110,3 @@ method main(:$args, :$opts) {
 run Test::Auto::Cli;
 
 __DATA__
-
-=help
-
-usage: testauto [options]
-
-  -h --help      Display help text.
-  -t --template  Filepath for POD template.
-  -p --pattern   Pattern to use to filter files.
-  -o --output    Directory for .pod files.
-  -i --input     Directory for .t files.
-
-=spec
-
-help|h, input|i=s, output|o=s, pattern|p=s, template|t=s
-
-=cut
