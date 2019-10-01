@@ -1,6 +1,11 @@
 Changelog for Test-Auto
 
-0.02 2019-09-27T14:07:47
+0.03 2019-10-01T15:23:40
+ - Added release updates
+ - Fixed Spec Signature Parsing Issue (#4)
+
+0.02 2019-09-27T14:07:49
+ - Built release version 0.02
  - Added release updates
  - Corrected T/A/Document POD error
  - Updated executable POD and dist.ini
