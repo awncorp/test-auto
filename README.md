@@ -56,7 +56,11 @@ This package supports the following scenarios:
     use Test::Auto;
     use Test::More;
 
-    # my $subtests = testauto('standard');
+    my $subtests = testauto 't/Test_Auto.t';
+
+    # automation
+
+    # $subtests->standard;
 
     # ...
 
@@ -80,6 +84,23 @@ This attribute is read-only, accepts `(DataObject)` values, and is optional.
     file(Str)
 
 This attribute is read-only, accepts `(Str)` values, and is required.
+
+# FUNCTIONS
+
+This package implements the following functions:
+
+## testauto
+
+    testauto(Str $file) : InstanceOf["Test::Auto::Subtests"]
+
+This function is exported automatically and returns a [Test::Auto::Subtests](https://metacpan.org/pod/Test%3A%3AAuto%3A%3ASubtests)
+object for the test file given.
+
+- testauto example #1
+
+        # given: synopsis
+
+        my $subtests = testauto 't/Test_Auto.t';
 
 # METHODS
 
