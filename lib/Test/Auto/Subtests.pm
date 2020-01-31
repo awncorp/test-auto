@@ -183,6 +183,32 @@ method synopsis($callback) {
   };
 }
 
+method scenario($name, $callback) {
+  my $parser = $self->parser;
+
+  my @results;
+
+  my $example = $parser->scenarios($name, 'example');
+  my @content = $example ? @{$example->[0]} : ();
+
+  unshift @content,
+    (map $parser->render($_),
+      (map +(/# given:\s*(\w+)/g), @content));
+
+  my $tryable = $self->tryable(join "\n", @content);
+
+  subtest "testing scenario ($name)", fun () {
+    unless (@content) {
+      BAIL_OUT "unknown scenario $name";
+
+      return;
+    }
+    @results = $callback->($tryable->call('evaluator'));
+
+    ok scalar(@results), 'called ok';
+  };
+}
+
 method example($number, $name, $type, $callback) {
   my $parser = $self->parser;
 
