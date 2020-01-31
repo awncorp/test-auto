@@ -45,7 +45,29 @@ routines are properly documented.
 
 This package uses type constraints from:
 
-[Data::Object::Library](https://metacpan.org/pod/Data::Object::Library)
+[Data::Object::Library](https://metacpan.org/pod/Data%3A%3AObject%3A%3ALibrary)
+
+# SCENARIOS
+
+This package supports the following scenarios:
+
+## testauto
+
+    use Test::Auto;
+    use Test::More;
+
+    my $subtests = testauto 't/Test_Auto.t';
+
+    # automation
+
+    # $subtests->standard;
+
+    # ...
+
+    # done_testing;
+
+This package automatically exports the `testauto` function which uses the
+"current file" as the automated testing source.
 
 # ATTRIBUTES
 
@@ -63,6 +85,23 @@ This attribute is read-only, accepts `(DataObject)` values, and is optional.
 
 This attribute is read-only, accepts `(Str)` values, and is required.
 
+# FUNCTIONS
+
+This package implements the following functions:
+
+## testauto
+
+    testauto(Str $file) : InstanceOf["Test::Auto::Subtests"]
+
+This function is exported automatically and returns a [Test::Auto::Subtests](https://metacpan.org/pod/Test%3A%3AAuto%3A%3ASubtests)
+object for the test file given.
+
+- testauto example #1
+
+        # given: synopsis
+
+        my $subtests = testauto 't/Test_Auto.t';
+
 # METHODS
 
 This package implements the following methods:
@@ -71,7 +110,7 @@ This package implements the following methods:
 
     document() : InstanceOf["Test::Auto::Document"]
 
-This method returns a [Test::Auto::Document](https://metacpan.org/pod/Test::Auto::Document) object.
+This method returns a [Test::Auto::Document](https://metacpan.org/pod/Test%3A%3AAuto%3A%3ADocument) object.
 
 - document example #1
 
@@ -83,7 +122,7 @@ This method returns a [Test::Auto::Document](https://metacpan.org/pod/Test::Auto
 
     parser() : InstanceOf["Test::Auto::Parser"]
 
-This method returns a [Test::Auto::Parser](https://metacpan.org/pod/Test::Auto::Parser) object.
+This method returns a [Test::Auto::Parser](https://metacpan.org/pod/Test%3A%3AAuto%3A%3AParser) object.
 
 - parser example #1
 
@@ -95,7 +134,7 @@ This method returns a [Test::Auto::Parser](https://metacpan.org/pod/Test::Auto::
 
     subtests() : InstanceOf["Test::Auto::Subtests"]
 
-This method returns a [Test::Auto::Subtests](https://metacpan.org/pod/Test::Auto::Subtests) object.
+This method returns a [Test::Auto::Subtests](https://metacpan.org/pod/Test%3A%3AAuto%3A%3ASubtests) object.
 
 - subtests example #1
 
@@ -119,6 +158,11 @@ This method returns a [Test::Auto::Subtests](https://metacpan.org/pod/Test::Auto
     =inherits
     =integrates
     =attributes
+
+    # [repeatable; optional]
+
+    =scenario $name
+    =example $name
 
     # [repeatable; optional]
 
@@ -216,7 +260,7 @@ of the package. This is tested for existence.
     =cut
 
 The `libraries` block should contain a list of packages, each of which is
-itself a [Type::Library](https://metacpan.org/pod/Type::Library). These packages are tested for loadability, and to
+itself a [Type::Library](https://metacpan.org/pod/Type%3A%3ALibrary). These packages are tested for loadability, and to
 ensure they are type library classes.
 
 ## inherits
@@ -242,6 +286,37 @@ are tested for loadability.
 The `integrates` block should contain a list of packages that are involved in
 the behavior of the main package. These packages are not automatically tested.
 
+## scenarios
+
+    =scenario export-path-make
+
+    quisque egestas diam in arcu cursus euismod quis viverra nibh
+
+    =example export-path-make
+
+    # given: synopsis
+
+    package main;
+
+    use Path::Find 'path_make';
+
+    path_make 'relpath/to/file';
+
+    =cut
+
+There are situation where a package can be configured in different ways,
+especially where it exists without functions, methods or routines for the
+purpose of configuring the environment. The scenario directive can be used to
+automate testing and documenting package usages and configurations.Describing a
+scenario requires two blocks, i.e. `scenario $name` and `example $name`. The
+`scenario` block should contain a description of the scenario and its purpose.
+The `example` block must exist when documenting a method and should contain
+valid Perl code and return a value. The block may contain a "magic" comment in
+the form of `given: synopsis` or `given: example-$number $name` which if
+present will include the given code example(s) with the evaluation of the
+current block. Each scenario is tested and must be recognized to exist by the
+main package.
+
 ## attributes
 
     =attributes
@@ -253,7 +328,7 @@ the behavior of the main package. These packages are not automatically tested.
 The `attributes` block should contain a list of package attributes in the form
 of `$name: $is, $presence, $type`, where `$is` should be `ro` (read-only) or
 `rw` (read-wire), and `$presence` should be `req` (required) or `opt`
-(optional), and `$type` can be any valid [Type::Tiny](https://metacpan.org/pod/Type::Tiny) expression. Each
+(optional), and `$type` can be any valid [Type::Tiny](https://metacpan.org/pod/Type%3A%3ATiny) expression. Each
 attribute declaration must be recognized to exist by the main package and have
 a type which is recognized by one of the declared type libraries.
 
@@ -286,7 +361,7 @@ Describing a method requires at least three blocks, i.e. `method $name`,
 a description of the method and its purpose. The `signature` block should
 contain a method signature in the form of `$signature : $return_type`, where
 `$signature` is a valid typed signature and `$return_type` is any valid
-[Type::Tiny](https://metacpan.org/pod/Type::Tiny) expression. The `example-$number` block is a repeatable block,
+[Type::Tiny](https://metacpan.org/pod/Type%3A%3ATiny) expression. The `example-$number` block is a repeatable block,
 and at least one block must exist when documenting a method. The
 `example-$number` block should contain valid Perl code and return a value. The
 block may contain a "magic" comment in the form of `given: synopsis` or
@@ -319,7 +394,7 @@ Describing a function requires at least three blocks, i.e. `function $name`,
 contain a description of the function and its purpose. The `signature` block
 should contain a function signature in the form of `$signature :
 $return_type`, where `$signature` is a valid typed signature and
-`$return_type` is any valid [Type::Tiny](https://metacpan.org/pod/Type::Tiny) expression. The `example-$number`
+`$return_type` is any valid [Type::Tiny](https://metacpan.org/pod/Type%3A%3ATiny) expression. The `example-$number`
 block is a repeatable block, and at least one block must exist when documenting
 a function. The `example-$number` block should contain valid Perl code and
 return a value. The block may contain a "magic" comment in the form of `given:
@@ -360,7 +435,7 @@ three blocks, i.e. `routine $name`, `signature $name`, and `example-1
 $name`. The `routine` block should contain a description of the routine and
 its purpose. The `signature` block should contain a routine signature in the
 form of `$signature : $return_type`, where `$signature` is a valid typed
-signature and `$return_type` is any valid [Type::Tiny](https://metacpan.org/pod/Type::Tiny) expression. The
+signature and `$return_type` is any valid [Type::Tiny](https://metacpan.org/pod/Type%3A%3ATiny) expression. The
 `example-$number` block is a repeatable block, and at least one block must
 exist when documenting a routine. The `example-$number` block should contain
 valid Perl code and return a value. The block may contain a "magic" comment in
@@ -398,7 +473,7 @@ two powerful hooks into the framework for manual testing.
 
 The code examples documented can be automatically evaluated (evaled) and
 returned using a callback you provide for further testing. Because the code
-examples are returned as [Data::Object::Try](https://metacpan.org/pod/Data::Object::Try) objects, this makes capturing and
+examples are returned as [Data::Object::Try](https://metacpan.org/pod/Data%3A%3AObject%3A%3ATry) objects, this makes capturing and
 testing exceptions simple, for example:
 
     my $subtests = $test->subtests;
@@ -416,7 +491,7 @@ testing exceptions simple, for example:
 
 Finally, The other manual testing hook (with some automation) is the `example`
 method. This hook evaluates (evals) a given example and returns the result as
-a [Data::Object::Try](https://metacpan.org/pod/Data::Object::Try) object.
+a [Data::Object::Try](https://metacpan.org/pod/Data%3A%3AObject%3A%3ATry) object.
 
     my $subtests = $test->subtests;
 

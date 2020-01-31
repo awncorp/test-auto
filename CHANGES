@@ -1,6 +1,11 @@
 Changelog for Test-Auto
 
-0.03 2019-10-01T15:23:40
+0.04 2020-01-31T16:50:25
+ - Added release updates
+ - Extend Spec with Scenarios
+
+0.03 2019-10-01T15:23:41
+ - Built release version 0.03
  - Added release updates
  - Fixed Spec Signature Parsing Issue (#4)
 
