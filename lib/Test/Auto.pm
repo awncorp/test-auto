@@ -5,8 +5,13 @@ use Data::Object 'Class';
 use Data::Object::Data;
 use Data::Object::Try;
 
+use Exporter;
 use Type::Registry;
 use Test::More;
+
+use base 'Exporter';
+
+our @EXPORT = 'testauto';
 
 # VERSION
 
@@ -21,6 +26,13 @@ has data => (
   isa => 'DataObject',
   opt => 1
 );
+
+# EXPORT
+
+fun testauto($file) {
+
+  return Test::Auto->new($file)->subtests;
+}
 
 # BUILD
 
