@@ -192,8 +192,8 @@ method scenario($name, $callback) {
   my @content = $example ? @{$example->[0]} : ();
 
   unshift @content,
-    (map $parser->render($_),
-      (map +(/# given:\s*(\w+)/g), @content));
+    (map $parser->render(split /\s/),
+      (map +(/# given:\s*([\w\s-]+)/g), @content));
 
   my $tryable = $self->tryable(join "\n", @content);
 
