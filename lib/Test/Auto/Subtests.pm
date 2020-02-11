@@ -39,6 +39,25 @@ method package() {
   };
 }
 
+method plugin($name) {
+  no autobox;
+
+  my $package = join '::', map ucfirst, (
+    'test', 'auto', 'plugin', $name
+  );
+
+  subtest "testing plugin ($name)", fun () {
+    use_ok $package
+      or plan skip_all => "$package not loaded";
+
+    ok $package->isa('Test::Auto::Plugin'), 'isa Test::Auto::Plugin';
+  };
+
+  my $instance = $package->new(subtests => $self);
+
+  return $instance;
+}
+
 method libraries() {
   my $parser = $self->parser;
 

@@ -1,5 +1,7 @@
 use 5.014;
 
+use lib 't/lib';
+
 use Do;
 use Test::Auto;
 use Test::More;
@@ -42,8 +44,8 @@ method: subtests
 =description
 
 This package aims to provide, a standard for documenting Perl 5 software
-projects, a framework writing tests, and automation for validating the tests,
-documentation, and usage examples.
+projects, a framework writing tests, test automation, and documentation
+generation.
 
 =scenario testauto
 
@@ -517,9 +519,10 @@ increases reusability and reduces the need for complicated state and test setup.
 
 package main;
 
-my $test = Test::Auto->new(__FILE__);
+my $subs = testauto(__FILE__);
 
-my $subs = $test->subtests->standard;
+$subs = $subs->standard;
+$subs->plugin('ShortDescription')->tests;
 
 $subs->synopsis(fun($tryable) {
   ok my $result = $tryable->result, 'result ok';

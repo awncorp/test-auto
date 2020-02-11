@@ -256,6 +256,25 @@ package.
 
 =cut
 
+=head2 plugin
+
+  plugin(Str $name) : Object
+
+This method builds, tests, and returns a plugin object based on the name
+provided.
+
+=over 4
+
+=item plugin example #1
+
+  # given: synopsis
+
+  $subtests->plugin('ShortDescription');
+
+=back
+
+=cut
+
 =head2 registry
 
   registry() : InstanceOf["Type::Registry"]
