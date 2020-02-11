@@ -35,7 +35,7 @@ method package() {
     my $package = $parser->render('name')
       or plan skip_all => "no package";
 
-    use_ok $package;
+    require_ok $package; # use_ok can't test roles
   };
 }
 
