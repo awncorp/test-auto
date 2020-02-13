@@ -354,6 +354,7 @@ standard subtests.
   # $self->methods;
   # $self->routines;
   # $self->functions;
+  # $self->types;
 
 =back
 
@@ -439,7 +440,11 @@ L<"license file"|https://github.com/iamalnewkirk/test-auto/blob/master/LICENSE>.
 
 =head1 PROJECT
 
+L<Wiki|https://github.com/iamalnewkirk/test-auto/wiki>
+
 L<Project|https://github.com/iamalnewkirk/test-auto>
+
+L<Initiatives|https://github.com/iamalnewkirk/test-auto/projects>
 
 L<Milestones|https://github.com/iamalnewkirk/test-auto/milestones>
 

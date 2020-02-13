@@ -268,6 +268,7 @@ standard() : InstanceOf["Test::Auto::Subtests"]
   # $self->methods;
   # $self->routines;
   # $self->functions;
+  # $self->types;
 
 =method scenario
 
