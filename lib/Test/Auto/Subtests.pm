@@ -1,6 +1,6 @@
 package Test::Auto::Subtests;
 
-use Data::Object 'Class';
+use Data::Object 'Class', 'Test::Auto::Types';
 
 use Type::Registry;
 use Test::More;
@@ -9,7 +9,7 @@ use Test::More;
 
 has parser => (
   is => 'ro',
-  isa => 'InstanceOf["Test::Auto::Parser"]',
+  isa => 'Parser',
   req => 1
 );
 
@@ -24,6 +24,7 @@ method standard() {
   $self->methods;
   $self->routines;
   $self->functions;
+  $self->types;
 
   return $self;
 }
@@ -184,6 +185,61 @@ method functions() {
         ok $function->{usage}, 'pod description';
         ok $function->{signature}, 'pod signature';
         ok $function->{examples}{1}, 'pod example-1';
+      };
+    }
+  };
+}
+
+method types() {
+  my $parser = $self->parser;
+
+  no autobox;
+
+  subtest "testing types", fun () {
+    my $types = $parser->types;
+    plan skip_all => 'no types' if !$types || !%$types;
+
+    for my $name (sort keys %$types) {
+      subtest "testing type $name", fun () {
+        my $type = $types->{$name};
+
+        my $library = $type->{library}[0][0]
+          or plan skip_all => "no library";
+
+        use_ok $library;
+        ok $library->isa('Type::Library'), 'isa Type::Library';
+
+        my $constraint = $library->get_type($name);
+        ok $constraint, 'has constraint';
+
+        if ($constraint) {
+          ok $constraint->isa('Type::Tiny'), 'isa Type::Tiny constraint';
+
+          for my $number (sort keys %{$type->{examples}}) {
+            my $example = $type->{examples}{$number};
+            my $context = join "\n", @{$example->[0]};
+
+            subtest "testing example-$number ($name)", fun () {
+              my $tryable = $self->tryable($context)->call('evaluator');
+              my $result = $tryable->result;
+
+              ok $constraint->check($result), 'passed constraint check';
+            };
+          }
+
+          for my $number (sort keys %{$type->{coercions}}) {
+            my $coercion = $type->{coercions}{$number};
+            my $context = join "\n", @{$coercion->[0]};
+
+            subtest "testing coercion-$number ($name)", fun () {
+              my $tryable = $self->tryable($context)->call('evaluator');
+              my $result = $tryable->result;
+
+              ok $constraint->check($constraint->coerce($result)),
+                'passed constraint coercion';
+            };
+          }
+        }
       };
     }
   };
