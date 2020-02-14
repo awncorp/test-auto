@@ -9,7 +9,7 @@ Test::Auto::Plugin
 
 =head1 ABSTRACT
 
-Subtest Plugin Base Class
+Test-Auto Plugin Class
 
 =cut
 
@@ -29,7 +29,7 @@ Subtest Plugin Base Class
       ok 1;
     };
 
-    return [@args];
+    return $self;
   }
 
   1;
@@ -73,10 +73,11 @@ This package implements the following methods:
 
 =head2 tests
 
-  tests(Any @args) : Any
+  tests(Any @args) : Object
 
 This method is meant to be overridden by the superclass, and should perform
-specialized subtests.
+specialized subtests. While not required, ideally this method should return its
+invocant.
 
 =over 4
 
@@ -100,6 +101,7 @@ specialized subtests.
     parser => $parser
   );
 
+  # Test::Auto::Plugin::ShortDescription
   my $example = $subtests->plugin('ShortDescription');
 
   $example->tests(length => 200);
@@ -122,7 +124,11 @@ L<"license file"|https://github.com/iamalnewkirk/test-auto/blob/master/LICENSE>.
 
 =head1 PROJECT
 
+L<Wiki|https://github.com/iamalnewkirk/test-auto/wiki>
+
 L<Project|https://github.com/iamalnewkirk/test-auto>
+
+L<Initiatives|https://github.com/iamalnewkirk/test-auto/projects>
 
 L<Milestones|https://github.com/iamalnewkirk/test-auto/milestones>
 
