@@ -28,8 +28,8 @@ Test Automation, Docs Generation
 # DESCRIPTION
 
 This package aims to provide, a standard for documenting Perl 5 software
-projects, a framework writing tests, and automation for validating the tests,
-documentation, and usage examples.
+projects, a framework writing tests, test automation, and documentation
+generation.
 
 # REASONING
 
