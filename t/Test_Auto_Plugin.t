@@ -12,7 +12,7 @@ Test::Auto::Plugin
 
 =abstract
 
-Subtest Plugin Base Class
+Test-Auto Plugin Class
 
 =includes
 
