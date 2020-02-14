@@ -32,10 +32,9 @@ Specification Parser
 
 =head1 DESCRIPTION
 
-This package use the L<Test::Auto> object as a parser target, where the
-object's file property points to a test file containing POD blocks which adhere
-to the specification as defined in L<Test::Auto/SPECIFICATION>, parses the test
-file and returns a parser object for accessing the data.
+This package parses files containing POD blocks which adhere to the
+specification as defined in L<Test::Auto/SPECIFICATION>, and provides methods
+for accessing the data.
 
 =cut
 
@@ -163,7 +162,11 @@ L<"license file"|https://github.com/iamalnewkirk/test-auto/blob/master/LICENSE>.
 
 =head1 PROJECT
 
+L<Wiki|https://github.com/iamalnewkirk/test-auto/wiki>
+
 L<Project|https://github.com/iamalnewkirk/test-auto>
+
+L<Initiatives|https://github.com/iamalnewkirk/test-auto/projects>
 
 L<Milestones|https://github.com/iamalnewkirk/test-auto/milestones>
 

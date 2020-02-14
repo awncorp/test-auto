@@ -1,6 +1,15 @@
 Changelog for Test-Auto
 
-0.04 2020-01-31T16:50:25
+0.05 2020-02-14T03:54:15
+ - Added release updates
+ - Update plugin abstract
+ - Extend spec to handle types (and libraries)
+ - Implement plugin architecture
+ - Expand inclusion comment use
+ - Test packages with require_ok
+
+0.04 2020-01-31T16:50:27
+ - Built release version 0.04
  - Added release updates
  - Extend Spec with Scenarios
 
