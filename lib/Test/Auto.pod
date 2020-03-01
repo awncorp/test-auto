@@ -118,7 +118,7 @@ This package implements the following functions:
 
 =head2 testauto
 
-  testauto(Str $file) : InstanceOf["Test::Auto::Subtests"]
+  testauto(Str $file) : Subtests
 
 This function is exported automatically and returns a L<Test::Auto::Subtests>
 object for the test file given.
@@ -143,7 +143,7 @@ This package implements the following methods:
 
 =head2 document
 
-  document() : InstanceOf["Test::Auto::Document"]
+  document() : Document
 
 This method returns a L<Test::Auto::Document> object.
 
@@ -161,7 +161,7 @@ This method returns a L<Test::Auto::Document> object.
 
 =head2 parser
 
-  parser() : InstanceOf["Test::Auto::Parser"]
+  parser() : Parser
 
 This method returns a L<Test::Auto::Parser> object.
 
@@ -179,7 +179,7 @@ This method returns a L<Test::Auto::Parser> object.
 
 =head2 subtests
 
-  subtests() : InstanceOf["Test::Auto::Subtests"]
+  subtests() : Subtests
 
 This method returns a L<Test::Auto::Subtests> object.
 

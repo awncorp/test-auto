@@ -62,9 +62,9 @@ This package has the following attributes:
 
 =head2 parser
 
-  parser(InstanceOf["Test::Auto::Parser"])
+  parser(Parser)
 
-This attribute is read-only, accepts C<(InstanceOf["Test::Auto::Parser"])> values, and is required.
+This attribute is read-only, accepts C<(Parser)> values, and is required.
 
 =cut
 
@@ -350,7 +350,7 @@ the result using the C<result> method.
 
 =head2 standard
 
-  standard() : InstanceOf["Test::Auto::Subtests"]
+  standard() : Subtests
 
 This method is shorthand which registers and executes a series of other
 standard subtests.
