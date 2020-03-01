@@ -92,7 +92,7 @@ FUNCTIONS
 
  testauto
 
-      testauto(Str $file) : InstanceOf["Test::Auto::Subtests"]
+      testauto(Str $file) : Subtests
 
     This function is exported automatically and returns a
     Test::Auto::Subtests object for the test file given.
@@ -109,7 +109,7 @@ METHODS
 
  document
 
-      document() : InstanceOf["Test::Auto::Document"]
+      document() : Document
 
     This method returns a Test::Auto::Document object.
 
@@ -121,7 +121,7 @@ METHODS
 
  parser
 
-      parser() : InstanceOf["Test::Auto::Parser"]
+      parser() : Parser
 
     This method returns a Test::Auto::Parser object.
 
@@ -133,7 +133,7 @@ METHODS
 
  subtests
 
-      subtests() : InstanceOf["Test::Auto::Subtests"]
+      subtests() : Subtests
 
     This method returns a Test::Auto::Subtests object.
 

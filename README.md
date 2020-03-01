@@ -91,7 +91,7 @@ This package implements the following functions:
 
 ## testauto
 
-    testauto(Str $file) : InstanceOf["Test::Auto::Subtests"]
+    testauto(Str $file) : Subtests
 
 This function is exported automatically and returns a [Test::Auto::Subtests](https://metacpan.org/pod/Test%3A%3AAuto%3A%3ASubtests)
 object for the test file given.
@@ -108,7 +108,7 @@ This package implements the following methods:
 
 ## document
 
-    document() : InstanceOf["Test::Auto::Document"]
+    document() : Document
 
 This method returns a [Test::Auto::Document](https://metacpan.org/pod/Test%3A%3AAuto%3A%3ADocument) object.
 
@@ -120,7 +120,7 @@ This method returns a [Test::Auto::Document](https://metacpan.org/pod/Test%3A%3A
 
 ## parser
 
-    parser() : InstanceOf["Test::Auto::Parser"]
+    parser() : Parser
 
 This method returns a [Test::Auto::Parser](https://metacpan.org/pod/Test%3A%3AAuto%3A%3AParser) object.
 
@@ -132,7 +132,7 @@ This method returns a [Test::Auto::Parser](https://metacpan.org/pod/Test%3A%3AAu
 
 ## subtests
 
-    subtests() : InstanceOf["Test::Auto::Subtests"]
+    subtests() : Subtests
 
 This method returns a [Test::Auto::Subtests](https://metacpan.org/pod/Test%3A%3AAuto%3A%3ASubtests) object.
 
