@@ -20,12 +20,28 @@ my %WriteMakefileArgs = (
   "MIN_PERL_VERSION" => "5.014000",
   "NAME" => "Test::Auto",
   "PREREQ_PM" => {
-    "Do" => "1.87"
+    "Data::Object::Attributes" => "0.04",
+    "Data::Object::Class" => "2.02",
+    "Data::Object::Data" => "2.00",
+    "Data::Object::Role::Stashable" => "2.01",
+    "Data::Object::Try" => "2.01",
+    "Type::Tiny" => "1.010000",
+    "routines" => 0,
+    "strict" => 0,
+    "warnings" => 0
   },
   "TEST_REQUIRES" => {
-    "Do" => "1.87"
+    "Data::Object::Attributes" => "0.04",
+    "Data::Object::Class" => "2.02",
+    "Data::Object::Data" => "2.00",
+    "Data::Object::Role::Stashable" => "2.01",
+    "Data::Object::Try" => "2.01",
+    "Type::Tiny" => "1.010000",
+    "routines" => 0,
+    "strict" => 0,
+    "warnings" => 0
   },
-  "VERSION" => "0.05",
+  "VERSION" => "0.06",
   "test" => {
     "TESTS" => "t/*.t"
   }
@@ -33,7 +49,15 @@ my %WriteMakefileArgs = (
 
 
 my %FallbackPrereqs = (
-  "Do" => "1.87"
+  "Data::Object::Attributes" => "0.04",
+  "Data::Object::Class" => "2.02",
+  "Data::Object::Data" => "2.00",
+  "Data::Object::Role::Stashable" => "2.01",
+  "Data::Object::Try" => "2.01",
+  "Type::Tiny" => "1.010000",
+  "routines" => 0,
+  "strict" => 0,
+  "warnings" => 0
 );
 
 

@@ -1,11 +1,28 @@
 package Test::Auto::Types;
 
-use Data::Object 'Library';
+use strict;
+use warnings;
+
+use Type::Library -base;
+use Type::Utils -all;
+
+BEGIN {
+  extends 'Types::Standard';
+}
 
 # VERSION
 
+declare 'Data',
+  as InstanceOf['Data::Object::Data'];
+
+declare 'Document',
+  as InstanceOf['Test::Auto::Document'];
+
 declare 'Parser',
   as InstanceOf['Test::Auto::Parser'];
+
+declare 'Plugin',
+  as InstanceOf['Test::Auto::Plugin'];
 
 declare 'Source',
   as InstanceOf['Test::Auto'];

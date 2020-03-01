@@ -1,19 +1,27 @@
 package Test::Auto;
 
-use Data::Object 'Class';
+use strict;
+use warnings;
 
+use Data::Object::Class;
+use Data::Object::Attributes;
 use Data::Object::Data;
 use Data::Object::Try;
 
 use Exporter;
-use Type::Registry;
 use Test::More;
+use Type::Registry;
+
+use registry 'Test::Auto::Types';
+use routines;
 
 use base 'Exporter';
 
 our @EXPORT = 'testauto';
 
 # VERSION
+
+# ATTRIBUTES
 
 has file => (
   is => 'ro',
@@ -23,31 +31,29 @@ has file => (
 
 has data => (
   is => 'ro',
-  isa => 'DataObject',
+  isa => 'Data',
   opt => 1
 );
 
-# EXPORT
+# EXPORTS
 
 fun testauto($file) {
 
   return Test::Auto->new($file)->subtests;
 }
 
-# BUILD
+# BUILDS
 
 method BUILD($args) {
   my $data = $self->data;
   my $file = $self->file;
 
-  # build data-model from podish
   $self->{data} = Data::Object::Data->new(file => $file) if !$data;
 
   return $self;
 }
 
 around BUILDARGS(@args) {
-  # convert single args to proper pair
   @args = (file => $args[0]) if @args == 1 && !ref $args[0];
 
   $self->$orig(@args);

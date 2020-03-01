@@ -46,13 +46,13 @@ LIBRARIES
 
     This package uses type constraints from:
 
-    Data::Object::Library
+    Test::Auto::Types
 
 SCENARIOS
 
     This package supports the following scenarios:
 
- testauto
+ exports
 
       use Test::Auto;
       use Test::More;
@@ -76,10 +76,9 @@ ATTRIBUTES
 
  data
 
-      data(DataObject)
+      data(Data)
 
-    This attribute is read-only, accepts (DataObject) values, and is
-    optional.
+    This attribute is read-only, accepts (Data) values, and is optional.
 
  file
 
@@ -190,7 +189,7 @@ SPECIFICATION
       =type-library $name
       =type-composite $name # [optional]
       =type-parent $name # [optional]
-      =type-coercion $name # [optional]
+      =type-coercion-$number $name # [optional]
       =type-example-$number $name # [repeatable]
 
     The specification is designed to accommodate typical package

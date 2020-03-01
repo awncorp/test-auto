@@ -1,11 +1,23 @@
 package Test::Auto::Subtests;
 
-use Data::Object 'Class', 'Test::Auto::Types';
+use strict;
+use warnings;
 
-use Type::Registry;
+use feature 'state';
+
+use Data::Object::Class;
+use Data::Object::Attributes;
 use Test::More;
+use Type::Registry;
+
+use registry 'Test::Auto::Types';
+use routines;
+
+require Carp;
 
 # VERSION
+
+# ATTRIBUTES
 
 has parser => (
   is => 'ro',
@@ -41,8 +53,6 @@ method package() {
 }
 
 method plugin($name) {
-  no autobox;
-
   my $package = join '::', map ucfirst, (
     'test', 'auto', 'plugin', $name
   );
@@ -193,8 +203,6 @@ method functions() {
 method types() {
   my $parser = $self->parser;
 
-  no autobox;
-
   subtest "testing types", fun () {
     my $types = $parser->types;
     plan skip_all => 'no types' if !$types || !%$types;
@@ -307,7 +315,7 @@ method example($number, $name, $type, $callback) {
     $signature = join "\n", @{$signature->[0]} if $signature;
   }
   else {
-    raise "$type is not a valid example type";
+    Carp::confess "$type is not a valid example type";
   }
 
   $number = abs $number;
@@ -354,7 +362,9 @@ method evaluator($context) {
   my $returned = eval "$context";
   my $failures = $@;
 
-  die $failures if $failures;
+  if ($failures) {
+    Carp::confess $failures
+  }
 
   return $returned;
 }

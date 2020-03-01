@@ -42,7 +42,7 @@ for accessing the data.
 
 This package uses type constraints from:
 
-L<Data::Object::Library>
+L<Test::Auto::Types>
 
 =cut
 

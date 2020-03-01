@@ -45,13 +45,13 @@ routines are properly documented.
 
 This package uses type constraints from:
 
-[Data::Object::Library](https://metacpan.org/pod/Data%3A%3AObject%3A%3ALibrary)
+[Test::Auto::Types](https://metacpan.org/pod/Test%3A%3AAuto%3A%3ATypes)
 
 # SCENARIOS
 
 This package supports the following scenarios:
 
-## testauto
+## exports
 
     use Test::Auto;
     use Test::More;
@@ -75,9 +75,9 @@ This package has the following attributes:
 
 ## data
 
-    data(DataObject)
+    data(Data)
 
-This attribute is read-only, accepts `(DataObject)` values, and is optional.
+This attribute is read-only, accepts `(Data)` values, and is optional.
 
 ## file
 
@@ -188,7 +188,7 @@ This method returns a [Test::Auto::Subtests](https://metacpan.org/pod/Test%3A%3A
     =type-library $name
     =type-composite $name # [optional]
     =type-parent $name # [optional]
-    =type-coercion $name # [optional]
+    =type-coercion-$number $name # [optional]
     =type-example-$number $name # [repeatable]
 
 The specification is designed to accommodate typical package declarations. It

@@ -58,7 +58,7 @@ routines are properly documented.
 
 This package uses type constraints from:
 
-L<Data::Object::Library>
+L<Test::Auto::Types>
 
 =cut
 
@@ -68,7 +68,7 @@ This package supports the following scenarios:
 
 =cut
 
-=head2 testauto
+=head2 exports
 
   use Test::Auto;
   use Test::More;
@@ -96,9 +96,9 @@ This package has the following attributes:
 
 =head2 data
 
-  data(DataObject)
+  data(Data)
 
-This attribute is read-only, accepts C<(DataObject)> values, and is optional.
+This attribute is read-only, accepts C<(Data)> values, and is optional.
 
 =cut
 
@@ -241,7 +241,7 @@ This method returns a L<Test::Auto::Subtests> object.
   =type-library $name
   =type-composite $name # [optional]
   =type-parent $name # [optional]
-  =type-coercion $name # [optional]
+  =type-coercion-$number $name # [optional]
   =type-example-$number $name # [repeatable]
 
 The specification is designed to accommodate typical package declarations. It

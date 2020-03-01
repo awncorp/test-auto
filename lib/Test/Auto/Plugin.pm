@@ -1,8 +1,13 @@
 package Test::Auto::Plugin;
 
+use strict;
+use warnings;
+
 use Data::Object::Class;
-use Data::Object::ClassHas;
-use Data::Object::Signatures;
+use Data::Object::Attributes;
+
+use registry 'Test::Auto::Types';
+use routines;
 
 # VERSION
 
@@ -10,7 +15,7 @@ use Data::Object::Signatures;
 
 has subtests => (
   is => 'ro',
-  isa => 'InstanceOf["Test::Auto::Subtests"]',
+  isa => 'Subtests',
   req => 1
 );
 
