@@ -47,7 +47,7 @@ plugins.
 
 This package uses type constraints from:
 
-L<Data::Object::Library>
+L<Test::Auto::Types>
 
 =cut
 
@@ -59,9 +59,9 @@ This package has the following attributes:
 
 =head2 subtests
 
-  subtests(InstanceOf["Test::Auto::Subtests"])
+  subtests(Subtests)
 
-This attribute is read-only, accepts C<(InstanceOf["Test::Auto::Subtests"])> values, and is required.
+This attribute is read-only, accepts C<(Subtests)> values, and is required.
 
 =cut
 

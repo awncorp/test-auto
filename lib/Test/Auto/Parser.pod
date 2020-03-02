@@ -42,7 +42,7 @@ for accessing the data.
 
 This package uses type constraints from:
 
-L<Data::Object::Library>
+L<Test::Auto::Types>
 
 =cut
 
@@ -134,9 +134,9 @@ This attribute is read-only, accepts C<(ArrayRef[Str])> values, and is optional.
 
 =head2 source
 
-  source(InstanceOf["Test::Auto"])
+  source(Source)
 
-This attribute is read-only, accepts C<(InstanceOf["Test::Auto"])> values, and is required.
+This attribute is read-only, accepts C<(Source)> values, and is required.
 
 =cut
 

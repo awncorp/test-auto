@@ -50,7 +50,7 @@ POD document.
 
 This package uses type constraints from:
 
-L<Data::Object::Library>
+L<Test::Auto::Types>
 
 =cut
 
@@ -70,9 +70,9 @@ This attribute is read-only, accepts C<(ArrayRef[Str])> values, and is optional.
 
 =head2 parser
 
-  parser(InstanceOf["Test::Auto::Parser"])
+  parser(Parser)
 
-This attribute is read-only, accepts C<(InstanceOf["Test::Auto::Parser"])> values, and is required.
+This attribute is read-only, accepts C<(Parser)> values, and is required.
 
 =cut
 

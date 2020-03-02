@@ -1,11 +1,21 @@
 package Test::Auto::Document;
 
-use Data::Object 'Class', 'Test::Auto::Types';
+use strict;
+use warnings;
 
+use Data::Object::Class;
+use Data::Object::Attributes;
 use Type::Registry;
 use Test::More;
 
+use registry 'Test::Auto::Types';
+use routines;
+
+require Carp;
+
 # VERSION
+
+# ATTRIBUTES
 
 has content => (
   is => 'ro',
@@ -428,7 +438,7 @@ method templated($content) {
 
   return $content unless $template;
 
-  open my $fh, "<", $template or raise "Can't open $template: $!";
+  open my $fh, "<", $template or Carp::confess "Can't open $template: $!";
 
   my $output = join "", <$fh>;
 
