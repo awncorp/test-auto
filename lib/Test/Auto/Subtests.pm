@@ -380,11 +380,12 @@ method tryable(@passed) {
 method registry() {
   my $parser = $self->parser;
   my $libraries = $parser->libraries;
+  my $package = $parser->name;
 
   $libraries = ['Types::Standard'] if !$libraries || !@$libraries;
 
   state $populate = 0;
-  state $registry = Type::Registry->for_me;
+  state $registry = Type::Registry->for_class($package);
 
   map $registry->add_types($_), @$libraries if !$populate++;
 
