@@ -21,7 +21,7 @@ my %WriteMakefileArgs = (
   "NAME" => "Test::Auto",
   "PREREQ_PM" => {
     "Data::Object::Class" => "2.02",
-    "Data::Object::ClassHas" => "2.00",
+    "Data::Object::ClassHas" => "2.01",
     "Data::Object::Data" => "2.00",
     "Data::Object::Role::Stashable" => "2.01",
     "Data::Object::Try" => "2.01",
@@ -31,7 +31,7 @@ my %WriteMakefileArgs = (
   },
   "TEST_REQUIRES" => {
     "Data::Object::Class" => "2.02",
-    "Data::Object::ClassHas" => "2.00",
+    "Data::Object::ClassHas" => "2.01",
     "Data::Object::Data" => "2.00",
     "Data::Object::Role::Stashable" => "2.01",
     "Data::Object::Try" => "2.01",
@@ -48,7 +48,7 @@ my %WriteMakefileArgs = (
 
 my %FallbackPrereqs = (
   "Data::Object::Class" => "2.02",
-  "Data::Object::ClassHas" => "2.00",
+  "Data::Object::ClassHas" => "2.01",
   "Data::Object::Data" => "2.00",
   "Data::Object::Role::Stashable" => "2.01",
   "Data::Object::Try" => "2.01",
