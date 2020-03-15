@@ -518,7 +518,7 @@ This is the equivalent of writing:
 
 This framework provides a set of automated subtests based on the package
 specification, but not everything can be automated so it also provides you with
-two powerful hooks into the framework for manual testing.
+powerful hooks into the framework for manual testing.
 
     my $subtests = $test->subtests;
 
@@ -536,38 +536,40 @@ testing exceptions simple, for example:
     my $subtests = $test->subtests;
 
     $subtests->synopsis(fun($tryable) {
-      # synopsis throws an exception
+      # catch exception thrown by the synopsis
       $tryable->catch('Path::Find::Error', sub {
         return $_[0];
       });
+      # test the exception
       ok my $result = $tryable->result, 'result ok';
       ok $result->isa('Path::Find::Error'), 'exception caught';
 
       $result;
     });
 
-Additionally, the other manual testing hook (with some automation) is the `example`
-method. This hook evaluates (evals) a given example and returns the result as
-a [Data::Object::Try](https://metacpan.org/pod/Data%3A%3AObject%3A%3ATry) object.
+Additionally, another manual testing hook (with some automation) is the
+`example` method. This hook evaluates (evals) a given example and returns the
+result as a [Data::Object::Try](https://metacpan.org/pod/Data%3A%3AObject%3A%3ATry) object. The first argument is the example ID
+(or number), for example:
 
     my $subtests = $test->subtests;
 
     $subtests->example(-1, 'children', 'method', fun($tryable) {
       ok my $result = $tryable->result, 'result ok';
 
-      $result;
+      $result; # for automated testing after the callback
     });
 
-Finally, the lesser used but super-useful manual testing hook is the
-`scenario` method. This hook evaluates (evals) a given scenario code block and
-returns the result as a [Data::Object::Try](https://metacpan.org/pod/Data%3A%3AObject%3A%3ATry) object.
+Finally, the lesser-used but useful manual testing hook is the `scenario`
+method. This hook evaluates (evals) a documented scenario and returns the
+result as a [Data::Object::Try](https://metacpan.org/pod/Data%3A%3AObject%3A%3ATry) object, for example:
 
     my $subtests = $test->subtests;
 
-    $subtests->scenario(-1, 'export-path-make', fun($tryable) {
+    $subtests->scenario('export-path-make', fun($tryable) {
       ok my $result = $tryable->result, 'result ok';
 
-      $result;
+      $result; # for automated testing after the callback
     });
 
 The test automation and document generation enabled through this framework
