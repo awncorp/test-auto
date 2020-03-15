@@ -332,10 +332,9 @@ scenario requires two blocks, i.e. C<scenario $name> and C<example $name>. The
 C<scenario> block should contain a description of the scenario and its purpose.
 The C<example> block must exist when documenting a method and should contain
 valid Perl code and return a value. The block may contain a "magic" comment in
-the form of C<given: synopsis> or C<given: example-$number $name> which if
-present will include the given code example(s) with the evaluation of the
-current block. Each scenario is tested and must be recognized to exist by the
-main package.
+the form of C<given: synopsis> or C<given: example $name> which if present will
+include the given code example(s) with the evaluation of the current block.
+Each scenario is tested and must be recognized to exist by the main package.
 
 +=head2 attributes
 
@@ -558,13 +557,25 @@ testing exceptions simple, for example:
     $result;
   });
 
-Finally, The other manual testing hook (with some automation) is the C<example>
+Additionally, the other manual testing hook (with some automation) is the C<example>
 method. This hook evaluates (evals) a given example and returns the result as
 a L<Data::Object::Try> object.
 
   my $subtests = $test->subtests;
 
   $subtests->example(-1, 'children', 'method', fun($tryable) {
+    ok my $result = $tryable->result, 'result ok';
+
+    $result;
+  });
+
+Finally, the lesser used but super-useful manual testing hook is the
+C<scenario> method. This hook evaluates (evals) a given scenario code block and
+returns the result as a L<Data::Object::Try> object.
+
+  my $subtests = $test->subtests;
+
+  $subtests->scenario(-1, 'export-path-make', fun($tryable) {
     ok my $result = $tryable->result, 'result ok';
 
     $result;
