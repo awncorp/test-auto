@@ -1,6 +1,12 @@
 Changelog for Test-Auto
 
-0.07 2020-03-03T13:06:57
+0.08 2020-03-15T18:09:23
+ - Added release updates
+ - Update documentation for scenarios
+ - Prevent "type" collision (#27)
+
+0.07 2020-03-03T13:06:59
+ - Built release version 0.07
  - Added release updates
  - Prevent "type" collision
  - Remove "Do" framework dependency (#25)
