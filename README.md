@@ -532,8 +532,8 @@ powerful hooks into the framework for manual testing.
 
 The code examples documented can be automatically evaluated (evaled) and
 returned using a callback you provide for further testing. Because the code
-examples are returned as [Test::Auto::Try](https://metacpan.org/pod/Test%3A%3AAuto%3A%3ATry) objects, this makes capturing and
-testing exceptions simple, for example:
+examples are returned as `Test::Auto::Try` objects (see [Data::Object::Try](https://metacpan.org/pod/Data%3A%3AObject%3A%3ATry)),
+this makes capturing and testing exceptions simple, for example:
 
     my $subtests = $test->subtests;
 
@@ -553,8 +553,8 @@ testing exceptions simple, for example:
 
 Additionally, another manual testing hook (with some automation) is the
 `example` method. This hook evaluates (evals) a given example and returns the
-result as a [Test::Auto::Try](https://metacpan.org/pod/Test%3A%3AAuto%3A%3ATry) object. The first argument is the example ID (or
-  number), for example:
+result as a `Test::Auto::Try` object (see [Data::Object::Try](https://metacpan.org/pod/Data%3A%3AObject%3A%3ATry)). The first
+argument is the example ID (or number), for example:
 
     my $subtests = $test->subtests;
 
@@ -568,7 +568,7 @@ result as a [Test::Auto::Try](https://metacpan.org/pod/Test%3A%3AAuto%3A%3ATry) 
 
 Finally, the lesser-used but useful manual testing hook is the `scenario`
 method. This hook evaluates (evals) a documented scenario and returns the
-result as a [Test::Auto::Try](https://metacpan.org/pod/Test%3A%3AAuto%3A%3ATry) object, for example:
+result as a `Test::Auto::Try` object (see [Data::Object::Try](https://metacpan.org/pod/Data%3A%3AObject%3A%3ATry)), for example:
 
     my $subtests = $test->subtests;
 

@@ -138,9 +138,9 @@ or raises an exception.
   example(Num $number, Str $name, Str $type, CodeRef $callback) : Any
 
 This method finds and evaluates (using C<eval>) the documented example and
-returns a L<Test::Auto::Try> object. The C<try> object can be used to trap
-exceptions using the C<catch> method, and/or execute the code and return the
-result using the C<result> method.
+returns a C<Test::Auto::Try> object (see L<Data::Object::Try>). The C<try>
+object can be used to trap exceptions using the C<catch> method, and/or execute
+the code and return the result using the C<result> method.
 
 =over 4
 
@@ -318,9 +318,9 @@ routines.
   scenario(Str $name, CodeRef $callback) : Any
 
 This method finds and evaluates (using C<eval>) the documented scenario example
-and returns a L<Test::Auto::Try> object. The C<try> object can be used to trap
-exceptions using the C<catch> method, and/or execute the code and return the
-result using the C<result> method.
+and returns a C<Test::Auto::Try> object (see L<Data::Object::Try>). The C<try>
+object can be used to trap exceptions using the C<catch> method, and/or execute
+the code and return the result using the C<result> method.
 
 =over 4
 
@@ -384,9 +384,9 @@ standard subtests.
   synopsis(CodeRef $callback) : Any
 
 This method evaluates (using C<eval>) the documented synopsis and returns a
-L<Test::Auto::Try> object. The C<try> object can be used to trap exceptions
-using the C<catch> method, and/or execute the code and return the result using
-the C<result> method.
+C<Test::Auto::Try> object (see L<Data::Object::Try>). The C<try> object can be
+used to trap exceptions using the C<catch> method, and/or execute the code and
+return the result using the C<result> method.
 
 =over 4
 

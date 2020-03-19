@@ -86,10 +86,8 @@ has source => (
 
 # BUILD
 
-around BUILD => sub {
-  my  ($orig, $self, $args) = @_;
-
-  $self->$orig($args);
+sub BUILD {
+  my  ($self, $args) = @_;
 
   $self->{'$stash'} = {} if !$self->{'$stash'};
 
@@ -113,7 +111,7 @@ around BUILD => sub {
   $self->build_types;
 
   return $self;
-};
+}
 
 # METHODS
 
@@ -836,9 +834,9 @@ sub render {
 sub stash {
   my ($self, $key, $value) = @_;
 
-  return $self->{'$stash'} if !exists $_[0];
+  return $self->{'$stash'} if !exists $_[1];
 
-  return $self->{'$stash'}->{$key} if !exists $_[1];
+  return $self->{'$stash'}->{$key} if !exists $_[2];
 
   $self->{'$stash'}->{$key} = $value;
 
