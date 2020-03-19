@@ -24,7 +24,7 @@ Test-Auto Plugin Class
   sub tests {
     my ($self, @args) = @_;
 
-    subtest "testing example plugin", fun () {
+    subtest "testing example plugin", sub {
 
       ok 1;
     };

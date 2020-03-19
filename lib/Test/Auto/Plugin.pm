@@ -3,11 +3,8 @@ package Test::Auto::Plugin;
 use strict;
 use warnings;
 
-use Data::Object::Class;
-use Data::Object::Attributes;
-
-use registry 'Test::Auto::Types';
-use routines;
+use Moo;
+use Test::Auto::Types ();
 
 # VERSION
 
@@ -15,13 +12,14 @@ use routines;
 
 has subtests => (
   is => 'ro',
-  isa => 'Subtests',
-  req => 1
+  isa => Test::Auto::Types::Subtests(),
+  required => 1
 );
 
 # METHODS
 
-method tests(%args) {
+sub tests {
+  my ($self, %args) = @_;
 
   return $self;
 }
