@@ -3,17 +3,14 @@ package Test::Auto;
 use strict;
 use warnings;
 
-use Data::Object::Class;
-use Data::Object::Attributes;
-use Data::Object::Data;
-use Data::Object::Try;
+use Moo;
 
 use Exporter;
+use Test::Auto::Data;
+use Test::Auto::Try;
+use Test::Auto::Types ();
 use Test::More;
 use Type::Registry;
-
-use registry 'Test::Auto::Types';
-use routines;
 
 use base 'Exporter';
 
@@ -25,43 +22,50 @@ our @EXPORT = 'testauto';
 
 has file => (
   is => 'ro',
-  isa => 'Str',
-  req => 1
+  isa => Test::Auto::Types::Str(),
+  required => 1
 );
 
 has data => (
   is => 'ro',
-  isa => 'Data',
-  opt => 1
+  isa => Test::Auto::Types::Data(),
+  required => 0
 );
 
 # EXPORTS
 
-fun testauto($file) {
+sub testauto {
+  my ($file) = @_;
 
   return Test::Auto->new($file)->subtests;
 }
 
 # BUILDS
 
-method BUILD($args) {
+sub BUILD {
+  my ($self, $args) = @_;
+
   my $data = $self->data;
   my $file = $self->file;
 
-  $self->{data} = Data::Object::Data->new(file => $file) if !$data;
+  $self->{data} = Test::Auto::Data->new(file => $file) if !$data;
 
   return $self;
 }
 
-around BUILDARGS(@args) {
+around BUILDARGS => sub {
+  my ($orig, $self, @args) = @_;
+
   @args = (file => $args[0]) if @args == 1 && !ref $args[0];
 
   $self->$orig(@args);
-}
+};
 
 # METHODS
 
-method parser() {
+sub parser {
+  my ($self) = @_;
+
   require Test::Auto::Parser;
 
   return Test::Auto::Parser->new(
@@ -69,7 +73,9 @@ method parser() {
   );
 }
 
-method document() {
+sub document {
+  my ($self) = @_;
+
   require Test::Auto::Document;
 
   return Test::Auto::Document->new(
@@ -77,7 +83,9 @@ method document() {
   );
 }
 
-method subtests() {
+sub subtests {
+  my ($self) = @_;
+
   require Test::Auto::Subtests;
 
   return Test::Auto::Subtests->new(
