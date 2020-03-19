@@ -22,16 +22,18 @@ my %WriteMakefileArgs = (
   "PREREQ_PM" => {
     "Moo" => "2.003006",
     "Try::Tiny" => "0.30",
+    "Type::Tiny" => "1.010001",
     "strict" => 0,
     "warnings" => 0
   },
   "TEST_REQUIRES" => {
     "Moo" => "2.003006",
     "Try::Tiny" => "0.30",
+    "Type::Tiny" => "1.010001",
     "strict" => 0,
     "warnings" => 0
   },
-  "VERSION" => "0.10",
+  "VERSION" => "0.11",
   "test" => {
     "TESTS" => "t/*.t"
   }
@@ -41,6 +43,7 @@ my %WriteMakefileArgs = (
 my %FallbackPrereqs = (
   "Moo" => "2.003006",
   "Try::Tiny" => "0.30",
+  "Type::Tiny" => "1.010001",
   "strict" => 0,
   "warnings" => 0
 );
