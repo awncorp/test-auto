@@ -387,7 +387,7 @@ sub evaluator {
 
   local $@;
 
-  my $returned = eval "$context";
+  my $returned = eval "no warnings 'redefine';\n\n$context";
   my $failures = $@;
 
   if ($failures) {
