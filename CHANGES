@@ -1,6 +1,15 @@
 Changelog for Test-Auto
 
-0.10 2020-03-19T03:29:14
+0.11 2020-05-11T23:23:36
+ - Added release updates
+ - Add missing POD to executable (#42)
+ - More detailed parser failure message (#41)
+ - Always disable "redefine" warning (#40)
+ - Housekeeping (#39)
+ - Refactored to avoid recursive dependencies (#32)
+
+0.10 2020-03-19T03:29:16
+ - Built release version 0.10
  - Added release updates
  - Add missing Type::Tiny dependency
  - Removed Stashable dependency
