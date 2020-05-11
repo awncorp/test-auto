@@ -187,6 +187,6 @@ jobs:
     - name: Cleanup Build Environment
       run: dzil clean
     - name: Build Project Distribution
-      run: V=$(cat VERSION) DZIL_RELEASE=1 dzil build
+      run: V=$(cat VERSION) DZIL_RELEASING=1 dzil build
     - name: Upload to CPAN
       run: cpan-upload -u ${{ secrets.CpanUser }} -p ${{ secrets.CpanPass }} $(ls *.tar.gz)
