@@ -74,6 +74,10 @@ sub construct_name {
   my $parser = $self->parser;
   my $name = $parser->name;
 
+  if (my $tagline = $parser->tagline) {
+    $name->[0] = $name->[0] .' - '. $tagline->[0] if @$tagline;
+  }
+
   return $self->head1('name', $name);
 }
 
