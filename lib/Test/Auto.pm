@@ -1,4 +1,3 @@
-# ABSTRACT: Test Automation, Docs Generation
 package Test::Auto;
 
 use strict;

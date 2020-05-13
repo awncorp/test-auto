@@ -1,6 +1,12 @@
 Changelog for Test-Auto
 
-0.11 2020-05-11T23:23:36
+0.12 2020-05-13T16:20:29
+ - Added release updates
+ - Housekeeping
+ - Support adding "tagline" to "name" in POD (#45)
+
+0.11 2020-05-11T23:23:38
+ - Built release version 0.11
  - Added release updates
  - Add missing POD to executable (#42)
  - More detailed parser failure message (#41)
