@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
     - name: Install Perlbrew
       run: sudo apt install -y perlbrew
     - name: Initial Perlbrew
@@ -36,7 +36,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
     - name: Install Perlbrew
       run: sudo apt install -y perlbrew
     - name: Initial Perlbrew
@@ -62,7 +62,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
     - name: Install Perlbrew
       run: sudo apt install -y perlbrew
     - name: Initial Perlbrew
@@ -88,7 +88,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
     - name: Install Perlbrew
       run: sudo apt install -y perlbrew
     - name: Initial Perlbrew
@@ -114,7 +114,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
     - name: Install Perlbrew
       run: sudo apt install -y perlbrew
     - name: Initial Perlbrew
@@ -140,7 +140,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
     - name: Install Perlbrew
       run: sudo apt install -y perlbrew
     - name: Initial Perlbrew
@@ -167,7 +167,9 @@ jobs:
     needs: ["Perl-5300", "Perl-5280", "Perl-5260", "Perl-5240", "Perl-5220", "Perl-5182"]
 
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
     - name: Setup Git User
       run: git config --global user.name "Al Newkirk"
     - name: Setup Git Email
@@ -176,6 +178,8 @@ jobs:
       run: git config --global github.user ${{ secrets.GithubUser }}
     - name: Setup GitHub Token
       run: git config --global github.token ${{ secrets.GithubToken }}
+    - name: Setup GitHub Tags
+      run: git fetch --tags
     - name: Install CPANM
       run: sudo apt install -y cpanminus
     - name: Install Dist::Zilla
