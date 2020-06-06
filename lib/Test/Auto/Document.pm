@@ -87,6 +87,8 @@ sub construct_abstract {
   my $parser = $self->parser;
   my $abstract = $parser->abstract;
 
+  return () if !$abstract || !@$abstract;
+
   return $self->head1('abstract', $abstract);
 }
 

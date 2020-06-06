@@ -160,14 +160,14 @@ subtests() : Subtests
   # [required]
 
   =name
-  =abstract
-  =tagline
   =includes
   =synopsis
   =description
 
   # [optional]
 
+  =abstract
+  =tagline
   =libraries
   =inherits
   =integrates
